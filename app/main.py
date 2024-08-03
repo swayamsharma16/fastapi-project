@@ -8,7 +8,7 @@ from .config import settings
 
 
 import os
-const port = process.env.PORT || 4000;
+
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -53,17 +53,10 @@ async def root():
 #     return {"message": "Welcome inside my function"}
 
 
-def run_app():
-    port = int(os.getenv("PORT", 8000))
+
+# For local development and testing
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
     uvicorn.run(app, host="0.0.0.0", port=port)
 
-if __name__ == "__main__":
-    run_app()
-
-
-def run_app():
-    port = int(os.getenv("PORT", 4000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
-
-if __name__ == "__main__":
-    run_app()
