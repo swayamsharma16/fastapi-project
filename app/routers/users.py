@@ -9,7 +9,7 @@ from random import randint
 
 router = APIRouter(
     prefix="/users",
-    tags=['Users']
+    tags=['users']
 )
 
 
