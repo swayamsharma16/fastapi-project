@@ -1,12 +1,14 @@
 from fastapi import FastAPI, Body, Response
-
 from app.routers import vote
 from . import models
 from .database import engine, get_db
 from .routers import post, users, auth
 from .config import settings
-
 # setting up cors
+
+
+import os
+const port = process.env.PORT || 4000;
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -59,3 +61,9 @@ if __name__ == "__main__":
     run_app()
 
 
+def run_app():
+    port = int(os.getenv("PORT", 4000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
+if __name__ == "__main__":
+    run_app()
